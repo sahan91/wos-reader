@@ -1,3 +1,5 @@
+## TODO: Need to optimize this! 4 for-loops are really bad :-)
+
 import os
 
 SUBJECTS = 'subjects'
