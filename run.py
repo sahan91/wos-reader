@@ -1,5 +1,4 @@
 ## TODO: Need to optimize this! 4 for-loops are really bad :-)
-
 import os
 
 SUBJECTS = 'subjects'
@@ -15,7 +14,7 @@ def write_to_file(line, path):
     with open(path, 'a') as outfile:
         outfile.write(line+"\n")
 
-def process_txt(folder_path, filename):
+def process_txt(folder_path, filename, sub_type, doc_type):
     global id_count
     path = os.path.join(folder_path, filename)
 
@@ -42,7 +41,7 @@ def process_txt(folder_path, filename):
 
                 if(split_line[0] == 'AB'):
                     abstract = line[3:]
-                    txt_line = str(id_count) + "\t"+ final_title + "\t" + abstract
+                    txt_line = sub_type+"_"+doc_type+"_"+str(id_count) + "\t"+ final_title + "\t" + abstract
                     out_path = path[:-6]
                     write_to_file(txt_line, out_path)
                     id_count += 1
@@ -55,5 +54,5 @@ for subject, query_list in SUBJECT_LIST.items():
             folder_path = os.path.join(SUBJECTS, subject, query, sub_type)
             for filename in os.listdir(folder_path):
                 if filename.endswith(".txt"):
-                    print(filename)
-                    process_txt(folder_path, filename)
+                    print(filename, sub_type)
+                    process_txt(folder_path, filename, subject, (sub_type[0]).upper())
