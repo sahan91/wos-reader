@@ -3,9 +3,25 @@ import os
 
 SUBJECTS = 'subjects'
 SUBJECT_LIST = {
-    'LA': ['learning analytics', 'learning science', 'computer supported collaborative learning', 'natural language processing', 'learning at scale', 'educational data mining', 'massive open online course', 'virtual learning environment', 'education technology'],
-    'DL': ['deep learning', 'convolutional neural network', 'recurrent neural network', 'generative adversarial network']
+    'LA': [
+        'learning analytics',
+        'learning science',
+        'computer supported collaborative learning',
+        'natural language processing',
+        'learning at scale', 
+        'educational data mining', 
+        'massive open online course', 
+        'virtual learning environment', 
+        'education technology'
+    ],
+    'DL': [
+        'deep learning', 
+        'convolutional neural network', 
+        'recurrent neural network', 
+        'generative adversarial network'
+    ]
 }
+
 SUBJECT_TYPES = ['conference', 'journal']
 
 id_count = 1
@@ -43,7 +59,8 @@ def process_txt(folder_path, filename, sub_type, doc_type):
                 if(split_line[0] == 'AB'):
                     abstract = line[3:]
                     txt_line = sub_type+"_"+doc_type+"_"+str(id_count) + "\t"+ final_title + "\t" + abstract
-                    out_path = path[:-6]
+                    out_path = os.path.join(folder_path, filename[:6])
+                    # print(out_path)
                     write_to_file(txt_line, out_path)
                     id_count += 1
 
