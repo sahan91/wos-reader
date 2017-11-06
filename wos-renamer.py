@@ -7,8 +7,9 @@ for folder in arr:
     files = os.listdir(dir_path)
     count = 1
     for file in files:
-        file_path_orig = os.path.join(dir_path, file)
-        file_path_dest = os.path.join(dir_path, folder+"_"+str(count)+".txt")
-        count += 1
-        os.rename(file_path_orig, file_path_dest)
+        if file.endswith(".txt"):
+            file_path_orig = os.path.join(dir_path, file)
+            file_path_dest = os.path.join(dir_path, folder+"_"+str(count)+".txt")
+            count += 1
+            os.rename(file_path_orig, file_path_dest)
         

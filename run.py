@@ -3,7 +3,8 @@ import os
 
 SUBJECTS = 'subjects'
 SUBJECT_LIST = {
-    'LA': ['learning analytics', 'learning science']
+    'LA': ['learning analytics', 'learning science', 'computer supported collaborative learning', 'natural language processing', 'learning at scale', 'educational data mining', 'massive open online course', 'virtual learning environment', 'education technology'],
+    'DL': ['deep learning', 'convolutional neural network', 'recurrent neural network', 'generative adversarial network']
 }
 SUBJECT_TYPES = ['conference', 'journal']
 
